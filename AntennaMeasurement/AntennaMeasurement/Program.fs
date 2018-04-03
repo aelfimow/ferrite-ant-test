@@ -75,51 +75,68 @@ module MeasurementDataWithout10nF =
     ]
 
 // Data of the capacitors bank
-module CapacityData =
+module CapacityBank =
 
-    let nanoFactor = 1.0E-9
-    let C0 = 0.56
-    let C1 = 0.82
-    let C2 = 1.0
-    let C3 = 3.3
-    let C4 = 4.7
+    let private nanoFactor = 1.0E-9
+    let private C0 = 0.56
+    let private C1 = 0.82
+    let private C2 = 1.0
+    let private C3 = 3.3
+    let private C4 = 4.7
 
-    let data = [
-        (0,  "00000")
-        (1,  "00001")
-        (2,  "00010")
-        (3,  "00011")
-        (4,  "00100")
-        (5,  "00101")
-        (6,  "00110")
-        (7,  "00111")
-        (8,  "01000")
-        (9,  "01001")
-        (10, "01010")
-        (11, "01011")
-        (12, "01100")
-        (13, "01101")
-        (14, "01110")
-        (15, "01111")
-        (16, "10000")
-        (17, "10001")
-        (18, "10010")
-        (19, "10011")
-        (20, "10100")
-        (21, "10101")
-        (22, "10110")
-        (23, "10111")
-        (24, "11000")
-        (25, "11001")
-        (26, "11010")
-        (27, "11011")
-        (28, "11100")
-        (29, "11101")
-        (30, "11110")
-        (31, "11111")
-    ]
+    let private getSwitchState x =
+        match x with
+        | 0  -> "00000"
+        | 1  -> "00001"
+        | 2  -> "00010"
+        | 3  -> "00011"
+        | 4  -> "00100"
+        | 5  -> "00101"
+        | 6  -> "00110"
+        | 7  -> "00111"
+        | 8  -> "01000"
+        | 9  -> "01001"
+        | 10 -> "01010"
+        | 11 -> "01011"
+        | 12 -> "01100"
+        | 13 -> "01101"
+        | 14 -> "01110"
+        | 15 -> "01111"
+        | 16 -> "10000"
+        | 17 -> "10001"
+        | 18 -> "10010"
+        | 19 -> "10011"
+        | 20 -> "10100"
+        | 21 -> "10101"
+        | 22 -> "10110"
+        | 23 -> "10111"
+        | 24 -> "11000"
+        | 25 -> "11001"
+        | 26 -> "11010"
+        | 27 -> "11011"
+        | 28 -> "11100"
+        | 29 -> "11101"
+        | 30 -> "11110"
+        | 31 -> "11111"
+        | _  -> "00000"
 
+    let private getC s C =
+        match s with
+        | "0" -> 0.0
+        | "1" -> C
+        | _   -> 0.0
 
-let main argv = 
+    let computeC x =
+        let state = getSwitchState x
+        let s4 = state.[0..0]
+        let s3 = state.[1..1]
+        let s2 = state.[2..2]
+        let s1 = state.[3..3]
+        let s0 = state.[4..4]
+        let totalC = getC s0 C0 + getC s1 C1 + getC s2 C2 + getC s3 C3 + getC s4 C4
+        let resultC = nanoFactor * totalC
+        resultC
+
+let main argv =
     printfn "%A" argv
     0

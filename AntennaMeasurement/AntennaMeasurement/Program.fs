@@ -1,13 +1,11 @@
 ﻿
 // Helper constants
-module Factor
+module Factor =
     let kilo = 1.0E3
     let nano = 1.0E-9
 
 // Measurement data with capacitors bank and 10 nF in parallel
 module MeasurementDataWith10nF =
-
-    let private kiloFactor = 1.0E3
 
     let private getF s =
         match s with
@@ -47,12 +45,10 @@ module MeasurementDataWith10nF =
 
     let getFrequency s =
         let f = getF s
-        kiloFactor * f
+        Factor.kilo * f
 
 // Measurement data with capacitors bank and without 10 nF in parallel
 module MeasurementDataWithout10nF =
-
-    let private kiloFactor = 1.0E3
 
     let private getF s =
         match s with
@@ -92,12 +88,11 @@ module MeasurementDataWithout10nF =
 
     let getFrequency s =
         let f = getF s
-        kiloFactor * f
+        Factor.kilo * f
 
 // Data of the capacitors bank
 module CapacityBank =
 
-    let private nanoFactor = 1.0E-9
     let private C0 = 0.56
     let private C1 = 0.82
     let private C2 = 1.0
@@ -154,8 +149,7 @@ module CapacityBank =
         let s1 = state.[3..3]
         let s0 = state.[4..4]
         let totalC = getC s0 C0 + getC s1 C1 + getC s2 C2 + getC s3 C3 + getC s4 C4
-        let resultC = nanoFactor * totalC
-        resultC
+        Factor.nano * totalC
 
 let main argv =
     printfn "%A" argv

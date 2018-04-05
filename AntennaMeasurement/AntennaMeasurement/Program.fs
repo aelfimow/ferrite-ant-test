@@ -195,6 +195,23 @@ module Antenna3 =
 
     let f_own = 309E3
 
-let main argv =
-    printfn "%A" argv
-    0
+printfn "Antenne 1: L1 = %f; L2 = %f" Antenna1.L1 Antenna1.L2
+printfn "Antenne 2: L1 = %f; L2 = %f" Antenna2.L1 Antenna2.L2
+printfn "Antenne 3: L1 = %f; L2 = %f" Antenna3.L1 Antenna3.L2
+
+// Capactor bank switchs
+let capSwitches = [| 0 .. 31 |]
+
+printfn "Measurement result with capacitor bank without 10 nF"
+for s in capSwitches do
+    let f = MeasurementDataWithout10nF.getFrequency s
+    let C = CapacityBank.computeC s
+    let L = L.compute f C
+    printfn "%d: %f" s L
+
+printfn "Measurement result with capacitor bank with 10 nF"
+for s in capSwitches do
+    let f = MeasurementDataWith10nF.getFrequency s
+    let C = 10E-9 + CapacityBank.computeC s
+    let L = L.compute f C
+    printfn "%d: %f" s L

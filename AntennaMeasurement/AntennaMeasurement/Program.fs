@@ -151,6 +151,50 @@ module CapacityBank =
         let totalC = getC s0 C0 + getC s1 C1 + getC s2 C2 + getC s3 C3 + getC s4 C4
         Factor.nano * totalC
 
+// Functions related to L computation
+module L =
+    // Compute L using resonance frequency f and capacity C
+    let compute f C =
+        let w = 2.0 * System.Math.PI * f
+        let w2 = w * w
+        1.0 / (w2 * C)
+
+// Measurement data of ferrite antenna 1
+module Antenna1 =
+    let private C1 = 3.3E-9
+    let private f1 = 37.19E3
+    let L1 = L.compute f1 C1
+
+    let private C2 = 4.7E-9
+    let private f2 = 31.38E3
+    let L2 = L.compute f2 C2
+
+    let f_own = 216E3
+
+// Measurement data of ferrite antenna 2
+module Antenna2 =
+    let private C1 = 3.3E-9
+    let private f1 = 40.98E3
+    let L1 = L.compute f1 C1
+
+    let private C2 = 4.7E-9
+    let private f2 = 34.56E3
+    let L2 = L.compute f2 C2
+
+    let f_own = 239E3
+
+// Measurement data of ferrite antenna 3
+module Antenna3 =
+    let private C1 = 3.3E-9
+    let private f1 = 52.97E3
+    let L1 = L.compute f1 C1
+
+    let private C2 = 4.7E-9
+    let private f2 = 44.64E3
+    let L2 = L.compute f2 C2
+
+    let f_own = 309E3
+
 let main argv =
     printfn "%A" argv
     0

@@ -169,6 +169,8 @@ module Antenna1 =
     let private f2 = 31.38E3
     let L2 = L.compute f2 C2
 
+    let L = (L1 + L2) / 2.0
+
     let f_own = 216E3
 
 // Measurement data of ferrite antenna 2
@@ -180,6 +182,8 @@ module Antenna2 =
     let private C2 = 4.7E-9
     let private f2 = 34.56E3
     let L2 = L.compute f2 C2
+
+    let L = (L1 + L2) / 2.0
 
     let f_own = 239E3
 
@@ -193,11 +197,16 @@ module Antenna3 =
     let private f2 = 44.64E3
     let L2 = L.compute f2 C2
 
+    let L = (L1 + L2) / 2.0
+
     let f_own = 309E3
 
-printfn "Antenne 1: L1 = %f; L2 = %f" Antenna1.L1 Antenna1.L2
-printfn "Antenne 2: L1 = %f; L2 = %f" Antenna2.L1 Antenna2.L2
-printfn "Antenne 3: L1 = %f; L2 = %f" Antenna3.L1 Antenna3.L2
+printfn "Antenne 1: L1 = %f; L2 = %f; L = %f" Antenna1.L1 Antenna1.L2 Antenna1.L
+printfn "Antenne 2: L1 = %f; L2 = %f; L = %f" Antenna2.L1 Antenna2.L2 Antenna2.L
+printfn "Antenne 3: L1 = %f; L2 = %f; L = %f" Antenna3.L1 Antenna3.L2 Antenna3.L
+
+let Total_L = Antenna1.L + Antenna2.L + Antenna3.L
+printfn "Total L = %f" Total_L
 
 // Capactor bank switchs
 let capSwitches = [| 0 .. 31 |]

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29319.158
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "AntennaMeasurement-2", "AntennaMeasurement-2.fsproj", "{AFE11187-96DB-45B2-A845-E4F7A28D11CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFE11187-96DB-45B2-A845-E4F7A28D11CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFE11187-96DB-45B2-A845-E4F7A28D11CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFE11187-96DB-45B2-A845-E4F7A28D11CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFE11187-96DB-45B2-A845-E4F7A28D11CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC7718FF-B688-4C59-B0F6-2DC94A826A41}
+	EndGlobalSection
+EndGlobal

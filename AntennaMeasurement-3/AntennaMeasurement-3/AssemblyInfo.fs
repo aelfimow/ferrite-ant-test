@@ -4,12 +4,12 @@ open System.Reflection
 open System.Runtime.CompilerServices
 open System.Runtime.InteropServices
 
-[<assembly: AssemblyTitle("AntennaMeasurement")>]
+[<assembly: AssemblyTitle("AntennaMeasurement-3")>]
 [<assembly: AssemblyDescription("Various antenna measurement data")>]
 [<assembly: AssemblyConfiguration("")>]
 [<assembly: AssemblyCompany("")>]
-[<assembly: AssemblyProduct("AntennaMeasurement")>]
-[<assembly: AssemblyCopyright("Copyright by Alexander Elfimow © 2018")>]
+[<assembly: AssemblyProduct("AntennaMeasurement-3")>]
+[<assembly: AssemblyCopyright("Copyright by Alexander Elfimow © 2021")>]
 [<assembly: AssemblyTrademark("")>]
 [<assembly: AssemblyCulture("")>]
 
